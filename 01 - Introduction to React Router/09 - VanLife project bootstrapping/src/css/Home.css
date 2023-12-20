@@ -1,0 +1,58 @@
+.home-page-container {
+  position: relative;
+  width: 100%;
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @media (max-width: 500px) {
+    gap: 30px;
+  }
+}
+
+.home-page-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./img/home-hero.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(65%);
+}
+
+.home-page-container h1 {
+  font-size: 2.5rem;
+  z-index: 1;
+  font-family: "Rubik Mono One", monospace;
+}
+
+.home-page-container p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.home-cta-button {
+  margin-top: auto;
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 15px;
+  background-color: #fb8500;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: all 0.3s ease-in;
+  z-index: 3;
+
+  &:hover {
+    background-color: whitesmoke;
+    color: #fb8500;
+  }
+}

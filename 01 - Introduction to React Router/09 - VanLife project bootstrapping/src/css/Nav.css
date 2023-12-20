@@ -1,0 +1,35 @@
+.nav {
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.705);
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: #fca311;
+    border-color: #fca311;
+  }
+}
+
+.nav ul li:nth-child(1) a {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000;
+  border: none;
+
+  &:hover {
+    color: #fca311;
+  }
+}

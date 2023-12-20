@@ -1,12 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400;500;600;900&display=swap");
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e3d5ca;
+  font-family: sans-serif;
 }
 
 nav > a {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Global classes */
+.link-button {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #000;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: whitesmoke;
+    color: #000;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 }
