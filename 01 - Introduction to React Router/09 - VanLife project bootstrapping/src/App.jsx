@@ -4,7 +4,9 @@ import React from "react";
 import Home from "./ui/Home";
 import About from "./ui/About";
 import "./css/Header.css";
+import Vans from "./ui/Vans.jsx";
 import "./server/server.js";
+import VanDetails from "./ui/VanDetails.jsx";
 
 function App() {
   return (
@@ -16,7 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetails />} />
         </Routes>
+        <footer>Ⓒ 2022 #VANLIFE</footer>
       </BrowserRouter>
     </React.Fragment>
   );

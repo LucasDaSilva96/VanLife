@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400;500;600;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik+Mono+One&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +9,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #e3d5ca;
+  background-color: #fff7ed;
   font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 nav > a {
@@ -19,6 +20,7 @@ nav > a {
 
 body {
   min-height: 100vh;
+  position: relative;
 }
 
 /* Global classes */
@@ -37,4 +39,15 @@ body {
     color: #000;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
+}
+
+footer {
+  margin-top: auto;
+  display: flex;
+  padding: 1.60506rem 6.64275rem 1.57175rem 6.625rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #252525;
+  color: #aaaaaa;
 }

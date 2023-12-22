@@ -1,0 +1,142 @@
+.vans-main-container {
+  padding: 20px;
+}
+
+.vans-main-container h1 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.10325rem; /* 105.164% */
+  text-align: center;
+
+  @media (max-width: 830px) {
+    text-align: left;
+    margin-left: calc(20px + 1.625rem);
+  }
+
+  @media (max-width: 460px) {
+    margin-left: 0;
+  }
+}
+
+.van-type-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.van-type-container button {
+  display: flex;
+  width: 6.5rem;
+  height: 2.3125rem;
+  padding: 0.375rem 1.625rem 0.4375rem 1.625rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0.3125rem;
+  background-color: #ffead0;
+  color: #4d4d4d;
+  border: none;
+  cursor: pointer;
+}
+
+.van-type-container p {
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.49494rem; /* 149.496% */
+  text-decoration-line: underline;
+}
+
+.vans-wrapper {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+  place-items: center;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+.van-box {
+  transition: all 0.3s ease-in;
+  padding-bottom: 12px;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+}
+
+.van-box img {
+  width: 14.32669rem;
+  height: 14.32669rem;
+  border-radius: 0.3125rem 0.3125rem 0rem 0rem;
+}
+
+.van-name-price-box {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5px;
+}
+
+.van-name-price-box h2 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.97888rem; /* 158.308% */
+}
+
+.rent-price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.rent-price-box h3 {
+  color: #161616;
+  text-align: right;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.97888rem; /* 158.308% */
+}
+
+.rent-price-box span {
+  color: #161616;
+  font-family: Avenir Next;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.van-type-p {
+  color: #ffead0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 0.3125rem;
+  margin-left: 2px;
+}
+
+.van-detail-link {
+  text-decoration: none;
+}

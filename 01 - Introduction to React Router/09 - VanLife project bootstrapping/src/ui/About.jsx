@@ -4,18 +4,16 @@ import "../css/About.css";
 
 function About() {
   return (
-    <div className="about-page-container">
+    <section className="about-page-container">
       <img src="./img/about-hero.png" />
       <div className="about-page-content-box">
-        <h1>Don't squeeze in a sedan when you could relax in a van</h1>
+        <h1>Don't squeeze in a sedan when you could relax in a van.</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Our mission is to enliven your road trip with the perfect travel van
+          rental. Our vans are recertified before each trip to ensure your
+          travel plans can go off without a hitch. (Hitch costs extra 😉) Our
+          team is full of vanlife enthusiasts who know firsthand the magic of
+          touring the world on 4 wheels.
         </p>
         <div className="about-page-cta-box">
           <h2>
@@ -27,7 +25,7 @@ function About() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,12 +1,13 @@
 .home-page-container {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   color: whitesmoke;
   text-align: center;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  justify-content: space-between;
 
   @media (max-width: 500px) {
     gap: 30px;
@@ -40,7 +41,6 @@
 }
 
 .home-cta-button {
-  margin-top: auto;
   text-decoration: none;
   color: whitesmoke;
   padding: 15px;

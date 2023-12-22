@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="home-page-container">
+    <section className="home-page-container">
       <h1>You got the travel, we got the travel vans.</h1>
       <p>
         Add adventure to your life by joining the #VANLIFE movement. Find the
@@ -13,7 +13,7 @@ function Home() {
       <Link className="home-cta-button" to="/vans">
         Find your van
       </Link>
-    </div>
+    </section>
   );
 }
 
