@@ -30,21 +30,19 @@ function Vans() {
       </div>
 
       <div className="vans-wrapper">
-        {vansArray.length > 0 ? (
-          vansArray.map((van) => (
-            <Link
-              to={`/vans/${van.id}`}
-              className="van-detail-link"
-              key={van.id}
-              // This is for screen-readers ↓
-              aria-label={`View details for ${van.name}, priced at ${van.price} per day`}
-            >
-              <Van van={van} />
-            </Link>
-          ))
-        ) : (
-          <h1 style={{ textAlign: "center" }}>No vans available</h1>
-        )}
+        {vansArray.length > 0
+          ? vansArray.map((van) => (
+              <Link
+                to={`/vans/${van.id}`}
+                className="van-detail-link"
+                key={van.id}
+                // This is for screen-readers ↓
+                aria-label={`View details for ${van.name}, priced at ${van.price} per day`}
+              >
+                <Van van={van} />
+              </Link>
+            ))
+          : null}
       </div>
     </section>
   );

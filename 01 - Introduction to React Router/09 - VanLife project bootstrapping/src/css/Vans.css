@@ -11,13 +11,8 @@
   line-height: 2.10325rem; /* 105.164% */
   text-align: center;
 
-  @media (max-width: 830px) {
-    text-align: left;
-    margin-left: calc(20px + 1.625rem);
-  }
-
   @media (max-width: 460px) {
-    margin-left: 0;
+    font-size: 1.5rem;
   }
 }
 
@@ -25,6 +20,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .van-type-container button {
@@ -54,16 +51,10 @@
 
 .vans-wrapper {
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 30px;
   gap: 20px;
-  place-items: center;
-
-  @media (min-width: 1100px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-  }
 }
 
 .van-box {
