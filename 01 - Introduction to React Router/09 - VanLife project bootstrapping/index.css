@@ -19,9 +19,9 @@ nav > a {
   text-decoration: none;
 }
 
-body {
+body,
+.container {
   min-height: 100vh;
-  position: relative;
 }
 
 /* Global classes */
@@ -43,7 +43,6 @@ body {
 }
 
 footer {
-  margin-top: auto;
   display: flex;
   padding: 1.60506rem 6.64275rem 1.57175rem 6.625rem;
   justify-content: center;
@@ -51,4 +50,5 @@ footer {
   flex-shrink: 0;
   background-color: #252525;
   color: #aaaaaa;
+  margin-top: auto;
 }

@@ -1,0 +1,22 @@
+.host-layout-nav-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.host-layout-nav-box a {
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.43269rem; /* 127.348% */
+  transition: all 0.3s linear;
+
+  &:hover {
+    color: #fca311;
+  }
+}

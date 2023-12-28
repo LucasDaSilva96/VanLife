@@ -20,7 +20,7 @@ function VanDetails() {
     }
 
     getVan();
-  }, [van]);
+  }, []);
 
   return (
     <section className="van-details-wrapper">

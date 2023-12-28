@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../css/Nav.css";
 
 function NavBar() {
@@ -6,13 +6,56 @@ function NavBar() {
     <nav className="nav">
       <ul>
         <li>
-          <Link to="/">#VANLIFE</Link>
+          <NavLink
+            to="/"
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#fca311" : "",
+                fontWeight: isActive ? "bold" : "",
+              };
+            }}
+          >
+            #VANLIFE
+          </NavLink>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <NavLink
+            to="/host"
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#fca311" : "",
+                fontWeight: isActive ? "bold" : "",
+              };
+            }}
+          >
+            Host
+          </NavLink>
         </li>
         <li>
-          <Link to="/vans">Vans</Link>
+          <NavLink
+            to="/about"
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#fca311" : "",
+                fontWeight: isActive ? "bold" : "",
+              };
+            }}
+          >
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/vans"
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#fca311" : "",
+                fontWeight: isActive ? "bold" : "",
+              };
+            }}
+          >
+            Vans
+          </NavLink>
         </li>
       </ul>
     </nav>
