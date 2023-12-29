@@ -5,10 +5,9 @@ import "../../css/HostLayout.css";
 function HostLayout() {
   return (
     <React.Fragment>
-      <h1>HostLayout</h1>
       <nav className="host-layout-nav-box">
         <NavLink
-          to="/host"
+          to="."
           end
           style={({ isActive }) => {
             return {
@@ -29,6 +28,18 @@ function HostLayout() {
           }}
         >
           Income
+        </NavLink>
+
+        <NavLink
+          to="vans"
+          style={({ isActive }) => {
+            return {
+              textDecoration: isActive ? "underline" : "",
+              color: isActive ? "#fca311" : "",
+            };
+          }}
+        >
+          Vans
         </NavLink>
 
         <NavLink

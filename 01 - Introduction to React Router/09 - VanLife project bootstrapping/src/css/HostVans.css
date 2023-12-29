@@ -1,0 +1,52 @@
+.host-vans-container {
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.host-vans-container a {
+  text-decoration: none;
+  color: #161616;
+}
+
+.host-van-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 0.375rem;
+  background: #fff;
+  padding: 10px;
+  transition: all 0.3s ease-in;
+  border: 1.5px solid transparent;
+
+  &:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-color: #161616;
+  }
+}
+
+.host-van-box img {
+  max-width: 4.11731rem;
+  max-height: 4.11731rem;
+  border-radius: 0.3125rem;
+}
+
+.host-van-box div h2 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.97888rem; /* 158.308% */
+}
+
+.host-van-box div span {
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.97888rem; /* 197.885% */
+}
