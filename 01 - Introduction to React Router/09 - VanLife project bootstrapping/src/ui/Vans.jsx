@@ -1,39 +1,93 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams, NavLink } from "react-router-dom";
 import "../css/Vans.css";
 import { useEffect, useState } from "react";
+import { getVans } from "../api/fetchVans";
 
 function Vans() {
   const [vansArray, setVansArray] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    async function getVans() {
+    async function loadVans() {
+      setIsLoading(true);
       try {
-        const res = await fetch("/api/vans");
-        const data = await res.json();
+        const data = await getVans();
 
         setVansArray(data.vans);
       } catch (err) {
-        throw new Error(err.message);
+        setError(err);
+      } finally {
+        setIsLoading(false);
       }
     }
 
-    getVans();
+    loadVans();
   }, []);
 
+  const typeFilter = searchParams.get("type");
+  const displayArray = typeFilter
+    ? vansArray.filter((el) => el.type === typeFilter)
+    : vansArray;
+
+  console.log(error);
+  if (error) {
+    return <h1 aria-live="assertive">There was an error </h1>;
+  }
   return (
     <section className="vans-main-container">
       <h1>Explore our van options</h1>
       <div className="van-type-container">
-        <button>Simple</button>
-        <button>Luxury</button>
-        <button>Rugged</button>
-        <p>Clear filters</p>
+        <NavLink
+          to="?type=simple"
+          style={{
+            backgroundColor: typeFilter === "simple" ? "#e17654" : "",
+            color: typeFilter === "simple" ? "#f5f5f5" : "",
+          }}
+        >
+          Simple
+        </NavLink>
+        <NavLink
+          to="?type=luxury"
+          style={{
+            backgroundColor: typeFilter === "luxury" ? "#161616" : "",
+            color: typeFilter === "luxury" ? "#f5f5f5" : "",
+          }}
+        >
+          Luxury
+        </NavLink>
+        <NavLink
+          to="?type=rugged"
+          style={{
+            backgroundColor: typeFilter === "rugged" ? "#115e59" : "",
+            color: typeFilter === "rugged" ? "#f5f5f5" : "",
+          }}
+        >
+          Rugged
+        </NavLink>
+        <NavLink to="." style={{ display: typeFilter ? "block" : "none" }}>
+          Clear filters
+        </NavLink>
+        {/*  <button onClick={() => setSearchParams({ type: "simple" })}>
+          Simple
+        </button>
+        <button onClick={() => setSearchParams({ type: "luxury" })}>
+          Luxury
+        </button>
+        <button onClick={() => setSearchParams({ type: "rugged" })}>
+          Rugged
+        </button>
+      <button onClick={() => setSearchParams({})}>Clear filter</button> */}
       </div>
 
+      {loading && <h1 aria-live="polite">Loading...</h1>}
+
       <div className="vans-wrapper">
-        {vansArray.length > 0
-          ? vansArray.map((van) => (
+        {displayArray.length > 0
+          ? displayArray.map((van) => (
               <Link
-                to={`/vans/${van.id}`}
+                to={`${van.id}`}
+                state={{ search: searchParams.toString() }}
                 className="van-detail-link"
                 key={van.id}
                 // This is for screen-readers ↓

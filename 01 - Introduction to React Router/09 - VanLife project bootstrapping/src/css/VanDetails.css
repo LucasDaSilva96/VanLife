@@ -10,6 +10,11 @@
   font-weight: 500;
   line-height: 1.43269rem;
   text-decoration-line: underline;
+  transition: all 0.3s linear;
+
+  &:hover {
+    color: #ff8c38;
+  }
 }
 
 .van-details-container {

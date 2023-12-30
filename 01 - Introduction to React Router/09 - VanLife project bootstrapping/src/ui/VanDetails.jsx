@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import "../css/VanDetails.css";
 
 function VanDetails() {
   const params = useParams();
+  const { state } = useLocation();
   const [van, setVan] = useState(null);
 
   useEffect(() => {
@@ -24,8 +25,12 @@ function VanDetails() {
 
   return (
     <section className="van-details-wrapper">
-      <Link to="/vans" className="van-detail-back-link">
-        ← Back to all vans
+      <Link
+        to={state.search ? `..?${state.search}` : ".."}
+        relative="path"
+        className="van-detail-back-link"
+      >
+        ← Back to {state.search ? `${state.search}`.split("=")[1] : "all"} vans
       </Link>
 
       {van && (

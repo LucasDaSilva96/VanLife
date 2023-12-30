@@ -36,6 +36,10 @@
   }
 }
 
+.nav ul li img {
+  max-width: 9.03206rem;
+}
+
 .nav ul li:nth-child(2) {
   margin-left: auto;
 }

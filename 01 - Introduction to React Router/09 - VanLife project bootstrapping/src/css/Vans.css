@@ -24,9 +24,8 @@
   gap: 10px;
 }
 
-.van-type-container button {
+.van-type-container a {
   display: flex;
-  width: 6.5rem;
   height: 2.3125rem;
   padding: 0.375rem 1.625rem 0.4375rem 1.625rem;
   justify-content: center;
@@ -37,9 +36,27 @@
   color: #4d4d4d;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s linear;
 }
 
-.van-type-container p {
+.van-type-container a:nth-child(1):hover {
+  background-color: #e17654;
+  color: #f5f5f5;
+}
+
+.van-type-container a:nth-child(2):hover {
+  background-color: #161616;
+  color: whitesmoke;
+}
+
+.van-type-container a:nth-child(3):hover {
+  background-color: #115e59;
+  color: whitesmoke;
+}
+
+.van-type-container a:last-child {
+  background-color: transparent;
   color: #4d4d4d;
   font-family: Inter;
   font-size: 1rem;

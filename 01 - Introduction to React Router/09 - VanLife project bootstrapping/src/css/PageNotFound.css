@@ -1,0 +1,34 @@
+.page-not-found-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.page-not-found-container h1 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.625rem; /* 131.25% */
+}
+
+.page-not-found-container button {
+  width: 100%;
+  max-width: 30.89581rem;
+  height: 3.4375rem;
+  border-radius: 0.31144rem;
+  background: #161616;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.97888rem;
+  cursor: pointer;
+}

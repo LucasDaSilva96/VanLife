@@ -15,7 +15,7 @@ function NavBar() {
               };
             }}
           >
-            #VANLIFE
+            <img src="/img/logog.png" />
           </NavLink>
         </li>
         <li>
