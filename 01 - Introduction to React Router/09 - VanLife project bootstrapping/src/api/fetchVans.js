@@ -13,7 +13,8 @@ async function getHostVans() {
 async function getVans() {
   try {
     const res = await fetch(`/api/vans`);
-    return res.json();
+    const { vans } = await res.json();
+    return vans;
   } catch (err) {
     throw new Error(err.message);
   }

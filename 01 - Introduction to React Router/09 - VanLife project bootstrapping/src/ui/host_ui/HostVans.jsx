@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "../../css/HostVans.css";
 
 function HostVans() {
-  const [vans, setVans] = useState([]);
-
   const data = useLoaderData();
-  useEffect(() => {
-    setVans(data);
-  }, []);
+  const [vans, setVans] = useState(data);
 
   return (
     <React.Fragment>

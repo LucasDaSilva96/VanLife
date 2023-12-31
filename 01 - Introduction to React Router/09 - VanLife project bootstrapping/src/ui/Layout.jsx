@@ -4,10 +4,13 @@ import Header from "./Header";
 
 function Layout() {
   return (
-    <React.Fragment>
+    <div
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+    >
       <Header />
       <Outlet />
-    </React.Fragment>
+      <footer>Ⓒ 2022 #VANLIFE</footer>
+    </div>
   );
 }
 

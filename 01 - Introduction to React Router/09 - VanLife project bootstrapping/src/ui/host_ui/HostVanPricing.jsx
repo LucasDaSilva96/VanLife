@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 
 function HostVanPricing() {

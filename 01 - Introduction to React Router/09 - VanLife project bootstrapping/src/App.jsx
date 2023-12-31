@@ -17,7 +17,10 @@ import HostVanPricing from "./ui/host_ui/HostVanPricing.jsx";
 import HostVanPhotos from "./ui/host_ui/HostVanPhotos.jsx";
 import PageNotFound from "./ui/PageNotFound.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { getHostVans } from "./api/fetchVans.js";
+import { getHostVans, getVans } from "./api/fetchVans.js";
+import Error from "./ui/Error.jsx";
+import Login from "./ui/Login.jsx";
+import { requireAuth } from "./auth/utils.js";
 
 // function App() {
 //   return (
@@ -68,33 +71,58 @@ const router = createBrowserRouter([
       {
         path: "vans",
         element: <Vans />,
+        loader: async () => {
+          return await getVans();
+        },
+        errorElement: <Error />,
       },
       {
         path: "vans/:id",
         element: <VanDetails />,
+        loader: async () => {
+          return await getVans();
+        },
+        errorElement: <Error />,
       },
       {
         path: "host",
         element: <HostLayout />,
+        loader: () => {
+          requireAuth();
+        },
+        errorElement: <Error />,
+
         children: [
           {
             index: true,
             element: <Dashboard />,
+            loader: () => {
+              requireAuth();
+            },
           },
           {
             path: "income",
             element: <Income />,
+            loader: () => {
+              requireAuth();
+            },
           },
           {
             path: "vans",
             element: <HostVans />,
             loader: async () => {
+              requireAuth();
               return await getHostVans();
             },
+            errorElement: <Error />,
           },
           {
             path: "vans/:id",
             element: <HostVanDetail />,
+            loader: async () => {
+              requireAuth();
+              return getHostVans();
+            },
             children: [
               {
                 index: true,
@@ -119,6 +147,10 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <PageNotFound />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },

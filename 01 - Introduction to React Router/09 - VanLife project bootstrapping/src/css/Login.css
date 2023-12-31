@@ -1,0 +1,93 @@
+.login-container {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.login-container h1 {
+  color: #161616;
+  text-align: center;
+  font-family: Inter;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem; /* 75% */
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container form input {
+  outline: none;
+  padding: 8px 10px;
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+
+.login-container form input:nth-child(1) {
+  border-radius: 8px 8px 0px 0px;
+  border-top: 1px solid #4d4d4d;
+  border-left: 1px solid #4d4d4d;
+  border-right: 1px solid #4d4d4d;
+  border-bottom: none;
+}
+
+.login-container form input:nth-child(2) {
+  border-radius: 0px 0px 8px 8px;
+  border: 1px solid #4d4d4d;
+}
+
+.login-container form button {
+  margin-top: 25px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #ff8c38;
+  color: whitesmoke;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25rem; /* 125% */
+  cursor: pointer;
+  transition: all 0.3s linear;
+
+  &:hover {
+    background-color: #161616;
+    color: #ff8c38;
+  }
+
+  &:focus {
+    outline-color: #161616;
+  }
+}
+
+.login-container p {
+  color: #161616;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem; /* 150% */
+}
+
+.login-container p a {
+  color: #ff8c38;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-decoration: none;
+}

@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useParams, useLocation, useLoaderData } from "react-router-dom";
 import "../css/VanDetails.css";
 
 function VanDetails() {
-  const params = useParams();
+  const { id } = useParams();
   const { state } = useLocation();
-  const [van, setVan] = useState(null);
-
-  useEffect(() => {
-    async function getVan() {
-      try {
-        const res = await fetch(`/api/vans/${params.id}`);
-
-        const data = await res.json();
-
-        setVan(data.vans);
-      } catch (err) {
-        throw new Error(err.message);
-      }
-    }
-
-    getVan();
-  }, []);
+  const data = useLoaderData();
+  const [van, setVan] = useState(data.find((van) => van.id === id));
 
   return (
     <section className="van-details-wrapper">

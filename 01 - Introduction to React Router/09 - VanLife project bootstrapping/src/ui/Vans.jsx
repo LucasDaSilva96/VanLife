@@ -1,39 +1,20 @@
-import { Link, useSearchParams, NavLink } from "react-router-dom";
+import {
+  Link,
+  useSearchParams,
+  NavLink,
+  useLoaderData,
+} from "react-router-dom";
 import "../css/Vans.css";
-import { useEffect, useState } from "react";
-import { getVans } from "../api/fetchVans";
 
 function Vans() {
-  const [vansArray, setVansArray] = useState([]);
+  const vansArray = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    async function loadVans() {
-      setIsLoading(true);
-      try {
-        const data = await getVans();
-
-        setVansArray(data.vans);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    loadVans();
-  }, []);
 
   const typeFilter = searchParams.get("type");
-  const displayArray = typeFilter
-    ? vansArray.filter((el) => el.type === typeFilter)
-    : vansArray;
 
-  console.log(error);
-  if (error) {
-    return <h1 aria-live="assertive">There was an error </h1>;
-  }
+  const displayArray = typeFilter
+    ? vansArray?.filter((el) => el.type === typeFilter)
+    : vansArray;
   return (
     <section className="vans-main-container">
       <h1>Explore our van options</h1>
@@ -79,8 +60,6 @@ function Vans() {
         </button>
       <button onClick={() => setSearchParams({})}>Clear filter</button> */}
       </div>
-
-      {loading && <h1 aria-live="polite">Loading...</h1>}
 
       <div className="vans-wrapper">
         {displayArray.length > 0

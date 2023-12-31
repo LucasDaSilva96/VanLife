@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLoaderData,
+  useParams,
+} from "react-router-dom";
 import "../../css/HostVanDetail.css";
 
 function HostVanDetail() {
   const { id } = useParams();
-  const [van, setVan] = useState([]);
+  const data = useLoaderData();
+  const [van, setVan] = useState(data.find((van) => van.id === id));
 
-  useEffect(() => {
-    async function getVan() {
-      try {
-        const res = await fetch(`/api/vans/${id}`);
-        const data = await res.json();
-        setVan(data.vans);
-      } catch (err) {
-        throw new Error(err.message);
-      }
-    }
-    getVan();
-  }, []);
   return (
     <div className="host-van-container">
       <Link to="/host/vans">← Back to all vans</Link>

@@ -23,6 +23,10 @@
   }
 }
 
+.nav ul li:last-child a {
+  border-bottom: none;
+}
+
 .nav ul li:nth-child(1) a {
   color: #000;
   font-family: Inter;
@@ -42,4 +46,17 @@
 
 .nav ul li:nth-child(2) {
   margin-left: auto;
+}
+
+.userIcon {
+  max-height: 2.6rem;
+  border-radius: 1rem;
+  padding: 5px;
+  transition: all 0.3s linear;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #fca311;
+  }
 }
