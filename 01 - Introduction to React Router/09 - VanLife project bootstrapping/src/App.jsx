@@ -21,7 +21,7 @@ import { getHostVans, getVans } from "./api/fetchVans.js";
 import Error from "./ui/Error.jsx";
 import Login from "./ui/Login.jsx";
 import { requireAuth } from "./auth/utils.js";
-
+import { loginAction } from "./api/login.js";
 // function App() {
 //   return (
 //     <React.Fragment>
@@ -151,12 +151,18 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+        action: async (e) => {
+          await loginAction(e);
+        },
       },
     ],
   },
 ]);
 
 function App() {
+  if (!localStorage.getItem("loggedIn")) {
+    localStorage.setItem("loggedIn", "false");
+  }
   return <RouterProvider router={router} />;
 }
 

@@ -1,8 +1,10 @@
 import { createServer, Model } from "miragejs";
+import { json } from "react-router-dom";
 
 createServer({
   models: {
     vans: Model,
+    users: Model,
   },
 
   seeds(server) {
@@ -72,6 +74,12 @@ createServer({
       type: "rugged",
       hostId: "123",
     });
+    server.create("user", {
+      id: "123",
+      email: "example@test.com",
+      password: "test123",
+      name: "Test User",
+    });
   },
 
   routes() {
@@ -96,6 +104,24 @@ createServer({
       // Hard-coded host id for now
       const id = request.params.id;
       return schema.vans.where({ id, hostId: "123" });
+    });
+    this.post("/login", (schema, request) => {
+      const { email, password } = JSON.parse(request.requestBody);
+      // This is an extremely naive version of authentication.
+      const foundUser = schema.users.findBy({ email, password });
+      if (!foundUser) {
+        return new Response(
+          401,
+          {},
+          { message: "No user with those credentials found" }
+        );
+      }
+
+      foundUser.password = undefined;
+      return {
+        user: foundUser,
+        token: "Welcome user, here's your token.",
+      };
     });
   },
 });
