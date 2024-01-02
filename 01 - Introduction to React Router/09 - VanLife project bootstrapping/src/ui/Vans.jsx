@@ -5,10 +5,12 @@ import {
   useLoaderData,
 } from "react-router-dom";
 import "../css/Vans.css";
+import { getVansAPI } from "../api/fetchVans";
 
 function Vans() {
   const vansArray = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
+  getVansAPI();
 
   const typeFilter = searchParams.get("type");
 

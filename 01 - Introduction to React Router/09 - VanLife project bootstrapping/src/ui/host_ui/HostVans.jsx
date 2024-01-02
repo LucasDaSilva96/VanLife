@@ -1,26 +1,40 @@
-import React, { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useState, Suspense } from "react";
+import { Link, useLoaderData, defer, Await } from "react-router-dom";
 import "../../css/HostVans.css";
+import { getHostVans } from "../../api/fetchVans";
+
+function hostVansLoader() {
+  const vansData = getHostVans();
+
+  return defer({ vans: vansData });
+}
 
 function HostVans() {
-  const data = useLoaderData();
+  // const data = useLoaderData();
+  const { data } = hostVansLoader();
   const [vans, setVans] = useState(data);
+  function renderHostVans(vans) {
+    return (
+      <div className="host-vans-container">
+        <h1>Your listed vans</h1>
+        {vans?.map((van) => {
+          return (
+            <Link to={`${van.id}`} key={van.id}>
+              <Van title={van.name} imgUrl={van.imageUrl} price={van.price} />
+            </Link>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <React.Fragment>
-      {vans && (
-        <div className="host-vans-container">
-          <h1>Your listed vans</h1>
-          {vans.map((van) => {
-            return (
-              <Link to={`${van.id}`} key={van.id}>
-                <Van title={van.name} imgUrl={van.imageUrl} price={van.price} />
-              </Link>
-            );
-          })}
-        </div>
-      )}
-      {!vans && <h1>Loading...</h1>}
+      <Suspense fallback={<h2 style={{ padding: "20px" }}>Loading...</h2>}>
+        <Await errorElement={<Error />} resolve={data.vans}>
+          {(vans) => renderHostVans(vans)}
+        </Await>
+      </Suspense>
     </React.Fragment>
   );
 }

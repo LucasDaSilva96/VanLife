@@ -1,3 +1,6 @@
+import { getDocs } from "firebase/firestore/lite";
+import { vansCollectionRef } from "../server/server";
+
 async function getHostVans() {
   try {
     const res = await fetch(`/api/host/vans`);
@@ -20,4 +23,15 @@ async function getVans() {
   }
 }
 
-export { getHostVans, getVans };
+async function getVansAPI() {
+  const querySnapshot = await getDocs(vansCollectionRef);
+  const dataArr = querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+
+  console.log(dataArr);
+  return dataArr;
+}
+
+export { getHostVans, getVans, getVansAPI };
