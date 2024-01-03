@@ -11,7 +11,7 @@ import "../../css/HostVanDetail.css";
 function HostVanDetail() {
   const { id } = useParams();
   const data = useLoaderData();
-  const [van, setVan] = useState(data.find((van) => van.id === id));
+  const [van, setVan] = useState(data?.find((van) => van.id === id));
 
   return (
     <div className="host-van-container">

@@ -1,37 +1,36 @@
-import { getDocs } from "firebase/firestore/lite";
-import { vansCollectionRef } from "../server/server";
-
-async function getHostVans() {
-  try {
-    const res = await fetch(`/api/host/vans`);
-
-    const data = await res.json();
-    const { vans } = data;
-    return vans;
-  } catch (err) {
-    throw new Error(err.message);
-  }
-}
-
-async function getVans() {
-  try {
-    const res = await fetch(`/api/vans`);
-    const { vans } = await res.json();
-    return vans;
-  } catch (err) {
-    throw new Error(err.message);
-  }
-}
+import { getDocs, query, where } from "firebase/firestore/lite";
+import { usersRef, vansCollectionRef } from "../server/server";
 
 async function getVansAPI() {
   const querySnapshot = await getDocs(vansCollectionRef);
   const dataArr = querySnapshot.docs.map((doc) => ({
     ...doc.data(),
-    id: doc.id,
   }));
 
-  console.log(dataArr);
   return dataArr;
 }
 
-export { getHostVans, getVans, getVansAPI };
+async function getHostAPI(email, password) {
+  const q = query(
+    usersRef,
+    where("email", "==", email),
+    where("password", "==", password)
+  );
+  const user = (await getDocs(q)).docs
+    .map((doc) => ({ ...doc.data() }))
+    .find((el) => el.email === email && el.password === password);
+  return user;
+}
+
+async function getHosVansAPI(id = "123") {
+  const querySnapshot = await getDocs(vansCollectionRef);
+  const dataArr = querySnapshot.docs
+    .map((doc) => ({
+      ...doc.data(),
+    }))
+    .filter((data) => data.hostId !== id.toString());
+
+  return dataArr;
+}
+
+export { getVansAPI, getHostAPI, getHosVansAPI };

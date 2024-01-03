@@ -7,6 +7,6 @@ export function requireAuth() {
   }
 }
 
-function getUserLoggedStatus() {
+export function getUserLoggedStatus() {
   return window.localStorage.getItem("loggedIn");
 }

@@ -1,11 +1,10 @@
 import React, { useState, Suspense } from "react";
-import { Link, useLoaderData, defer, Await } from "react-router-dom";
+import { Link, defer, Await } from "react-router-dom";
 import "../../css/HostVans.css";
-import { getHostVans } from "../../api/fetchVans";
+import { getHosVansAPI } from "../../api/fetchVans";
 
 function hostVansLoader() {
-  const vansData = getHostVans();
-
+  const vansData = getHosVansAPI();
   return defer({ vans: vansData });
 }
 
@@ -13,6 +12,9 @@ function HostVans() {
   // const data = useLoaderData();
   const { data } = hostVansLoader();
   const [vans, setVans] = useState(data);
+
+  getHosVansAPI();
+
   function renderHostVans(vans) {
     return (
       <div className="host-vans-container">

@@ -17,11 +17,12 @@ import HostVanPricing from "./ui/host_ui/HostVanPricing.jsx";
 import HostVanPhotos from "./ui/host_ui/HostVanPhotos.jsx";
 import PageNotFound from "./ui/PageNotFound.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { getHostVans, getVans } from "./api/fetchVans.js";
+import { getVansAPI, getHosVansAPI } from "./api/fetchVans.js";
 import Error from "./ui/Error.jsx";
 import Login from "./ui/Login.jsx";
 import { requireAuth } from "./auth/utils.js";
 import { loginAction } from "./api/login.js";
+
 // function App() {
 //   return (
 //     <React.Fragment>
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
         path: "vans",
         element: <Vans />,
         loader: async () => {
-          return await getVans();
+          return await getVansAPI();
         },
         errorElement: <Error />,
       },
@@ -80,7 +81,7 @@ const router = createBrowserRouter([
         path: "vans/:id",
         element: <VanDetails />,
         loader: async () => {
-          return await getVans();
+          return await getVansAPI();
         },
         errorElement: <Error />,
       },
@@ -112,7 +113,7 @@ const router = createBrowserRouter([
             element: <HostVans />,
             loader: async () => {
               requireAuth();
-              return await getHostVans();
+              return await getHosVansAPI();
             },
             errorElement: <Error />,
           },
@@ -121,7 +122,7 @@ const router = createBrowserRouter([
             element: <HostVanDetail />,
             loader: async () => {
               requireAuth();
-              return getHostVans();
+              return getHosVansAPI();
             },
             children: [
               {

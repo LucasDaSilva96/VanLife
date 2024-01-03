@@ -44,8 +44,8 @@ function VanDetails() {
           </p>
 
           <p>{van.description}</p>
-
-          <Link to="">Rent this van</Link>
+          {/* ↓ TODO ↓ */}
+          <Link to="*">Rent this van</Link>
         </div>
       )}
     </section>

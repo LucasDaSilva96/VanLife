@@ -1,30 +1,13 @@
 import { redirect } from "react-router-dom";
-
-async function loginUser(creds) {
-  const res = await fetch("/api/login", {
-    method: "post",
-    body: JSON.stringify(creds),
-  });
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw {
-      message: data.message,
-      statusText: res.statusText,
-      status: res.status,
-    };
-  }
-
-  return data;
-}
+import { getHostAPI } from "./fetchVans";
 
 export async function loginAction({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
-  const data = await loginUser({ email, password });
+  const data = await getHostAPI(email, password);
 
-  if (data.user) {
+  if (data) {
     localStorage.setItem("loggedIn", "true");
     location.href = "/host";
   } else {
