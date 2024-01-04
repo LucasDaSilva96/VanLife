@@ -1,11 +1,17 @@
 import { NavLink, useLocation } from "react-router-dom";
 import "../css/Nav.css";
 import { getUserLoggedStatus } from "../auth/utils";
+import { useEffect, useState } from "react";
 
 function NavBar() {
   const { pathname } = useLocation();
   const isLoggedIn = getUserLoggedStatus() === "true";
-  console.log(isLoggedIn);
+  const [toggleMenu, setToggleMenu] = useState(true);
+
+  function handleToggleMenu() {
+    setToggleMenu((e) => !e);
+  }
+
   return (
     <nav className="nav">
       <aside>
@@ -21,7 +27,7 @@ function NavBar() {
           <img src="/img/logog.png" />
         </NavLink>
       </aside>
-      <div className="toggle-hambuger">
+      <div className="toggle-hambuger" onClick={handleToggleMenu}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="36"
@@ -32,8 +38,8 @@ function NavBar() {
           <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
         </svg>
       </div>
-      <ul className="ul">
-        <li>
+      <ul className={toggleMenu ? "slide" : ""}>
+        <li onClick={handleToggleMenu}>
           <NavLink
             to="/host"
             style={({ isActive }) => {
@@ -46,7 +52,7 @@ function NavBar() {
             Host
           </NavLink>
         </li>
-        <li>
+        <li onClick={handleToggleMenu}>
           <NavLink
             to="about"
             style={({ isActive }) => {
@@ -59,7 +65,7 @@ function NavBar() {
             About
           </NavLink>
         </li>
-        <li>
+        <li onClick={handleToggleMenu}>
           <NavLink
             to="vans"
             style={({ isActive }) => {
@@ -74,7 +80,7 @@ function NavBar() {
         </li>
 
         {!isLoggedIn ? (
-          <li>
+          <li onClick={handleToggleMenu}>
             <NavLink to="login">
               <img
                 className="userIcon"
@@ -87,7 +93,7 @@ function NavBar() {
             </NavLink>
           </li>
         ) : (
-          <li>
+          <li onClick={handleToggleMenu}>
             <NavLink
               to="login"
               onClick={() => {
@@ -99,6 +105,7 @@ function NavBar() {
                 src="/img/exit_to_icon.png"
                 style={{
                   borderColor: pathname === "/login" ? "#000" : "transparent",
+                  backgroundColor: "#fff7ed",
                 }}
               />
             </NavLink>

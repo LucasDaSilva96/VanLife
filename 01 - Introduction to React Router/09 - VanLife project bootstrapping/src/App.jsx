@@ -97,8 +97,9 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Dashboard />,
-            loader: () => {
+            loader: async () => {
               requireAuth();
+              return await getHosVansAPI();
             },
           },
           {

@@ -66,6 +66,10 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.71275rem; /* 105.164% */
+
+  @media (max-width: 550px) {
+    font-size: 1.2rem;
+  }
 }
 
 .van-detail-title-box p {

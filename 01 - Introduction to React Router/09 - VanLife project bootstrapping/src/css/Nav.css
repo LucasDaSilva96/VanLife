@@ -11,6 +11,7 @@
   gap: 20px;
   list-style: none;
   z-index: 500;
+  transition: transform 0.3s linear;
 
   @media (max-width: 550px) {
     position: absolute;
@@ -18,11 +19,11 @@
     right: 0;
     flex-direction: column;
     justify-content: space-around;
-    min-width: 375px;
+    width: 100%;
     height: 100vh;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    background-color: #00000088;
+    background-color: #00000094;
   }
 }
 
@@ -71,11 +72,20 @@
   }
 }
 
-nav ul {
-  /* display: none !important; */
-}
-
 .toggle-hambuger {
   z-index: 10000;
   display: none;
+  background-color: #fff7ed;
+  border-radius: 5px;
+  cursor: pointer;
+
+  @media (max-width: 550px) {
+    display: block;
+  }
+}
+
+.slide {
+  @media (max-width: 550px) {
+    transform: translateX(200vw);
+  }
 }

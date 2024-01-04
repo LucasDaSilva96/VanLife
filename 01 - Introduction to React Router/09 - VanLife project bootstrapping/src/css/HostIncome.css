@@ -1,0 +1,92 @@
+.income-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.income-container h1 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.375rem; /* 61.111% */
+}
+
+.income-container p {
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.375rem; /* 137.5% */
+}
+
+.income-container p strong {
+  color: #4d4d4d;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.375rem;
+  text-decoration-line: underline;
+}
+
+.income-container h2 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 2.375rem; /* 79.167% */
+  padding: 10px 0px;
+}
+
+.income-diagram-wrapper {
+  min-width: 300px;
+  max-width: 500px;
+  height: 300px;
+}
+
+.transaction-box-wrapper {
+  padding: 10px 10px 10px 0px;
+  overflow-y: scroll;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.transactions-heading-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transaction-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffff;
+  padding: 30px;
+}
+
+.transaction-box h4 {
+  color: #161616;
+  font-family: Inter;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.97888rem; /* 87.949% */
+}
+
+.transaction-box p {
+  color: #4d4d4d;
+  text-align: right;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.97888rem; /* 158.308% */
+}

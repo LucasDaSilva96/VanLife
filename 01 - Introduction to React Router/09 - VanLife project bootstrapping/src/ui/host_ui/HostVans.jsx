@@ -9,26 +9,10 @@ function hostVansLoader() {
 }
 
 function HostVans() {
-  // const data = useLoaderData();
   const { data } = hostVansLoader();
   const [vans, setVans] = useState(data);
 
   getHosVansAPI();
-
-  function renderHostVans(vans) {
-    return (
-      <div className="host-vans-container">
-        <h1>Your listed vans</h1>
-        {vans?.map((van) => {
-          return (
-            <Link to={`${van.id}`} key={van.id}>
-              <Van title={van.name} imgUrl={van.imageUrl} price={van.price} />
-            </Link>
-          );
-        })}
-      </div>
-    );
-  }
 
   return (
     <React.Fragment>
@@ -53,5 +37,20 @@ function Van({ title, imgUrl, price }) {
         <span>${price}/day</span>
       </div>
     </article>
+  );
+}
+
+export function renderHostVans(vans, host) {
+  return (
+    <div className="host-vans-container">
+      <h1>Your listed vans</h1>
+      {vans?.map((van) => {
+        return (
+          <Link to={host ? `vans/${van.id}` : `${van.id}`} key={van.id}>
+            <Van title={van.name} imgUrl={van.imageUrl} price={van.price} />
+          </Link>
+        );
+      })}
+    </div>
   );
 }
